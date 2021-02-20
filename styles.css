@@ -50,12 +50,12 @@ label {
   margin-left: 130px;
 }
 
-.clear-button,
-.receive-msg-button {
+button {
   margin-top: 2px;
   color: #FFFFFF;
   background-color: #134D71;
   border-radius: 5px;
+  border: 0px;
   font-size: 13px;
   height: 22px;
   width: 150px;
@@ -81,6 +81,15 @@ svg {
   max-width: 60px;
 }
 
+/* Create Your Own Adventure */
+
 .hidden {
   display: none;
+}
+
+.show-all-messages-bttn {
+  margin-top: 40px;
+  height: 30px;
+  width: 180px;
+  background-color: #F08080;
 }

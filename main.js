@@ -7,6 +7,7 @@ var radioButtons = document.querySelectorAll(".radio-button");
 var msgPlaceholder = document.querySelector("p");
 //Error Handling & Clear Buttons
 var clearButton = document.querySelector(".clear-button");
+var showAllMsgButton = document.querySelector(".how-all-messages-bttn");
 
 //Arrays
 affirmList = [
@@ -54,17 +55,19 @@ function getRandomIndex(array) {
 }
 
 function generateRandomText() {
-  meditateLogo.style.display = "none";
-  clearButton.classList.toggle('hidden');
 
   if(document.getElementById("affirmation").checked) {
      var randomAffirmIndex = getRandomIndex(affirmList);
      msgPlaceholder.innerHTML += `${affirmList[randomAffirmIndex]}`;
+     meditateLogo.style.display = "none";
+     clearButton.classList.toggle('hidden');
   } else if (document.getElementById("mantra").checked) {
      var randomMantraIndex = getRandomIndex(mantraList);
      msgPlaceholder.innerHTML += `${mantraList[randomMantraIndex]}`;
+     meditateLogo.style.display = "none";
+     clearButton.classList.toggle('hidden');
   } else {
-     alert("Please select affirmation or mantra.");
+     alert("Please select either the affirmation button or mantra button.");
   }
 }
 
@@ -74,3 +77,5 @@ function clearMessage() {
   clearButton.classList.toggle('hidden');
   meditateLogo.style.display = "inline";
 }
+
+//All Message Interface
