@@ -5,11 +5,19 @@ var meditateLogo = document.querySelector("svg");
 var returnMsgBox = document.querySelector(".logo-box");
 var radioButtons = document.querySelectorAll(".radio-button");
 var msgPlaceholder = document.querySelector("p");
+var mainPage = document.querySelector(".main");
 //Error Handling & Clear Buttons
 var clearButton = document.querySelector(".clear-button");
-var showAllMsgButton = document.querySelector(".how-all-messages-bttn");
+//All Message Interface
+var showAllMsgButton = document.querySelector(".show-all-messages-bttn");
+var allAffirmations = document.querySelector(".all-affirmations");
+var affirmationsList = document.querySelector(".affirmations-list");
+var allMantras = document.querySelector(".all-mantras");
+var mantrasList = document.querySelector(".mantras-list");
+var allMessagesPage = document.querySelector(".all-messages");
 
-//Arrays
+
+//**Arrays**
 affirmList = [
   "I forgive myself and set myself free.",
   "I believe I can be all that I want to be.",
@@ -45,11 +53,14 @@ mantraList = [
 ]
 
 
-//Event Listeners
+//**Event Listeners**
 receiveMsgButton.addEventListener('click', generateRandomText);
 clearButton.addEventListener('click', clearMessage);
+showAllMsgButton.addEventListener('click', showAllMsgPage);
 
-//Event Handlers
+
+
+//**Event Handlers**
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
@@ -79,3 +90,15 @@ function clearMessage() {
 }
 
 //All Message Interface
+function showAllMsgPage() {
+  mainPage.classList.toggle('hidden');
+  allMessagesPage.classList.toggle('hidden');
+
+  for(var i = 0; i < affirmList.length; i++){
+    return affirmList.split(',').join("<br />")
+    affirmationsList.innerText += `${affirmList[i]}`;
+  }
+  for(var i = 0; i < mantraList.length; i++){
+    mantrasList.innerText += `${mantraList[i]}`;
+  }
+}
