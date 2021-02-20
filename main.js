@@ -5,7 +5,10 @@ var meditateLogo = document.querySelector("svg");
 var returnMsgBox = document.querySelector(".logo-box");
 var radioButtons = document.querySelectorAll(".radio-button");
 var msgPlaceholder = document.querySelector("p");
+//Error Handling & Clear Buttons
+var clearButton = document.querySelector(".clear-button");
 
+//Arrays
 affirmList = [
   "I forgive myself and set myself free.",
   "I believe I can be all that I want to be.",
@@ -42,18 +45,17 @@ mantraList = [
 
 
 //Event Listeners
-
 receiveMsgButton.addEventListener('click', generateRandomText);
+clearButton.addEventListener('click', clearMessage);
 
 //Event Handlers
-
-
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
 function generateRandomText() {
   meditateLogo.style.display = "none";
+  clearButton.classList.toggle('hidden');
 
   if(document.getElementById("affirmation").checked) {
      var randomAffirmIndex = getRandomIndex(affirmList);
@@ -64,4 +66,11 @@ function generateRandomText() {
   } else {
      alert("Please select affirmation or mantra.");
   }
+}
+
+//Error Handling & Clear Buttons
+function clearMessage() {
+  msgPlaceholder.innerHTML = "";
+  clearButton.classList.toggle('hidden');
+  meditateLogo.style.display = "inline";
 }

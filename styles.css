@@ -50,6 +50,7 @@ label {
   margin-left: 130px;
 }
 
+.clear-button,
 .receive-msg-button {
   margin-top: 2px;
   color: #FFFFFF;
@@ -78,4 +79,8 @@ label {
 svg {
   max-height: 60px;
   max-width: 60px;
+}
+
+.hidden {
+  display: none;
 }
