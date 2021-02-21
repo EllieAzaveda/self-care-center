@@ -88,11 +88,13 @@ svg {
   display: none;
 }
 
+.show-all-favorites-bttn,
 .show-all-messages-bttn {
   margin-top: 40px;
   height: 30px;
-  width: 180px;
+  width: 200px;
   background-color: #F08080;
+  display: inline;
 }
 
 h2 {
@@ -103,3 +105,5 @@ p {
   color:  #404040;
   font-weight: bold;
 }
+
+/* Favorite Message */

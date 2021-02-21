@@ -15,6 +15,12 @@ var affirmationsList = document.querySelector(".affirmations-list");
 var allMantras = document.querySelector(".all-mantras");
 var mantrasList = document.querySelector(".mantras-list");
 var allMessagesPage = document.querySelector(".all-messages");
+//Favorite Message
+var favMessageButton = document.querySelector(".favorite-message");
+var favoritesPage = document.querySelector(".favorites-page");
+var showFavButton = document.querySelector(".show-all-favorites-bttn");
+var favoritesList = document.querySelector(".favorites-list");
+var backToMainButton = document.querySelector(".back-to-main");
 
 
 //**Arrays**
@@ -52,6 +58,9 @@ mantraList = [
 "I am the sky, the rest is weather."
 ]
 
+favoriteList = [];
+
+
 
 //**Event Listeners**
 receiveMsgButton.addEventListener('click', generateRandomText);
@@ -59,6 +68,9 @@ clearButton.addEventListener('click', clearMessage);
 showAllMsgButton.addEventListener('click', showAllMsgPage);
 receiveMsgButton.addEventListener('click', generateRandomText);
 clearButton.addEventListener('click', clearMessage);
+favMessageButton.addEventListener('click', addFavorite);
+showFavButton.addEventListener('click', showFavorites);
+backToMainButton.addEventListener('click', showMainPage);
 
 
 //**Event Handlers**
@@ -67,26 +79,30 @@ function getRandomIndex(array) {
 }
 
 function generateRandomText() {
-
   if(document.getElementById("affirmation").checked) {
      var randomAffirmIndex = getRandomIndex(affirmList);
      msgPlaceholder.innerHTML += `${affirmList[randomAffirmIndex]}`;
-     meditateLogo.style.display = "none";
-     clearButton.classList.toggle('hidden');
+     toggleMessageBox();
   } else if (document.getElementById("mantra").checked) {
      var randomMantraIndex = getRandomIndex(mantraList);
      msgPlaceholder.innerHTML += `${mantraList[randomMantraIndex]}`;
-     meditateLogo.style.display = "none";
-     clearButton.classList.toggle('hidden');
+     toggleMessageBox();
   } else {
      alert("Please select either the affirmation button or mantra button.");
   }
 }
 
+function toggleMessageBox() {
+  meditateLogo.style.display = "none";
+  clearButton.classList.toggle('hidden');
+  favMessageButton.classList.toggle('hidden');
+}
+
 //Error Handling & Clear Buttons
 function clearMessage() {
   msgPlaceholder.innerHTML = "";
-  clearButton.classList.toggle('hidden');
+  clearButton.classList.toggle("hidden");
+  favMessageButton.classList.toggle('hidden');
   meditateLogo.style.display = "inline";
 }
 
@@ -101,4 +117,25 @@ function showAllMsgPage() {
   for(var i = 0; i < mantraList.length; i++){
     mantrasList.innerText += `${mantraList[i]}` + "\n";
   }
+}
+
+//Favorite Message
+function addFavorite() {
+  var currentMessage = msgPlaceholder.innerText;
+  favoriteList.push(currentMessage);
+}
+
+function showFavorites() {
+  mainPage.classList.toggle('hidden');
+  favoritesPage.classList.toggle('hidden');
+
+  for(var i = 0; i < favoriteList.length; i++){
+    favoritesList.innerText += `${favoriteList[i]}` + "\n";
+    console.log(favoriteList);
+  }
+}
+
+function showMainPage() {
+  mainPage.classList.toggle('hidden');
+  favoritesPage.classList.toggle('hidden');
 }
