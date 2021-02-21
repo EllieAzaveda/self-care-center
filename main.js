@@ -95,10 +95,9 @@ function showAllMsgPage() {
   allMessagesPage.classList.toggle('hidden');
 
   for(var i = 0; i < affirmList.length; i++){
-    return affirmList.split(',').join("<br />")
-    affirmationsList.innerText += `${affirmList[i]}`;
+    affirmationsList.innerText += `${affirmList[i]}` + "\n";
   }
   for(var i = 0; i < mantraList.length; i++){
-    mantrasList.innerText += `${mantraList[i]}`;
+    mantrasList.innerText += `${mantraList[i]}` + "\n";
   }
 }
