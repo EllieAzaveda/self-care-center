@@ -92,6 +92,7 @@ function generateRandomText() {
   }
 }
 
+
 function toggleMessageBox() {
   meditateLogo.style.display = "none";
   clearButton.classList.toggle('hidden');
@@ -122,16 +123,20 @@ function showAllMsgPage() {
 //Favorite Message
 function addFavorite() {
   var currentMessage = msgPlaceholder.innerText;
-  favoriteList.push(currentMessage);
+
+  if (favoriteList.includes(currentMessage)) {
+    alert("You have already saved this message!");
+  } else {
+    favoriteList.push(currentMessage);
+    alert("This poster has been saved!");
+  }
 }
 
 function showFavorites() {
-  mainPage.classList.toggle('hidden');
-  favoritesPage.classList.toggle('hidden');
+  showMainPage();
 
   for(var i = 0; i < favoriteList.length; i++){
     favoritesList.innerText += `${favoriteList[i]}` + "\n";
-    console.log(favoriteList);
   }
 }
 
