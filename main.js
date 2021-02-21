@@ -57,7 +57,8 @@ mantraList = [
 receiveMsgButton.addEventListener('click', generateRandomText);
 clearButton.addEventListener('click', clearMessage);
 showAllMsgButton.addEventListener('click', showAllMsgPage);
-
+receiveMsgButton.addEventListener('click', generateRandomText);
+clearButton.addEventListener('click', clearMessage);
 
 
 //**Event Handlers**
